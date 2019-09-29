@@ -1,4 +1,4 @@
-﻿# TXTAdder
+# TXTAdder
 # PowerShell To Adding TXT record with Certify the Web
 # Version 1.0.2
 # Author: Taylor D. Marchetta
@@ -11,8 +11,8 @@ param (
     [string]$value  #HashValue for Let's Encrypt
     )
 
-# Check for 'C:\TXTAdder\DynuAPIKey.txt' file.
-if (Test-Path C:\TXTAdder\DynuAPIKey.txt) {
+# Check for 'C:\crsadmin\DynuAPIKey.txt' file.
+if (Test-Path C:\crsadmin\DynuAPIKey.txt) {
 
 # Removes "IX HashValue" in wildcards.
 $zone = $zone -replace "'\*.',"
