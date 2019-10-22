@@ -14,7 +14,7 @@ Copy-Item -Path "$currentlocation\RDGateway_Update.ps1" -Destination $TXTAdderlo
 
 # $getAPIKey | Add-Content -Path 
 $getAPIKey = Read-Host -Prompt 'Dynu API Key, Please'
-$getAPIKey | Add-Content -Path "C:\crsadmin\DynuAPIKey.txt"
+$getAPIKey | Add-Content -Path "C:\crsadmin\TXTAdder\DynuAPIKey.txt"
 
 # These PowerShell scripts are not signed...
 Set-ExecutionPolicy Bypass

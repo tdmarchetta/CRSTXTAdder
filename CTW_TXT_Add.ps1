@@ -18,7 +18,7 @@ if (Test-Path C:\crsadmin\TXTAdder\DynuAPIKey.txt) {
 $zone = $zone -replace "'\*.',"
 
 # Gets the API Key from the file "DynuAPIKey.txt".
-$APIKey = Get-Content -Path 'C:\TXTAdder\DynuAPIKey.txt'
+$APIKey = Get-Content -Path 'C:\crsadmin\TXTAdder\DynuAPIKey.txt'
 
 # GET Request to Dynu.com - This will get the ID of the domain.
 $getdomaindata = Invoke-RestMethod -Method GET -Uri "https://api.dynu.com/v2/dns/" -ContentType "application/json" -Headers @{ "Api-Key"ù = $APIKey }

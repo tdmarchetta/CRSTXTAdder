@@ -11,7 +11,7 @@ param (
     )
 
 ###### Gets the API Key from the file.
-$APIKey = Get-Content -Path 'C:\crsadmin\DynuAPIKey.txt'
+$APIKey = Get-Content -Path 'C:\crsadmin\TXTAdder\DynuAPIKey.txt'
 
 ###### GET Request to Dynu.com - This will get the ID of the domain.
 $getdomaindata = Invoke-RestMethod -Method GET -Uri "https://api.dynu.com/v2/dns/" -ContentType "application/json" -Headers @{ "Api-Key"ù = $APIKey }
@@ -20,7 +20,7 @@ $getdomaindata = Invoke-RestMethod -Method GET -Uri "https://api.dynu.com/v2/dns
 $domainid = $getdomaindata.domains.Where({ $_.name -eq "$zone" }).id
 
 ###### This is to get the record ID.
-$getrecorddata = Invoke-RestMethod -Method GET -Uri "https://api.dynu.com/v2/dns/$($domainid)/record/" -ContentType ‚Äòapplication/json‚Äô -Headers @{ "Api-Key"ù = $APIKey }
+$getrecorddata = Invoke-RestMethod -Method GET -Uri "https://api.dynu.com/v2/dns/$($domainid)/record/" -ContentType "application/json" -Headers @{ "Api-Key"ù = $APIKey }
 
 ###### This is looking for object record "ID".
 $recordid = $getrecorddata.dnsRecords.Where({ $_.nodeName -eq '_acme-challenge' }).id
@@ -29,6 +29,6 @@ $recordid = $getrecorddata.dnsRecords.Where({ $_.nodeName -eq '_acme-challenge' 
 foreach ($element in $recordid) {
 
 ###### Delete TXT record to Dynu Record.
-Invoke-RestMethod -Method DELETE -Uri "https://api.dynu.com/v2/dns/$($domainid)/record/$($element)" -ContentType ‚Äòapplication/json‚Äô -Headers @{ "Api-Key"ù = $APIKey }
+Invoke-RestMethod -Method DELETE -Uri "https://api.dynu.com/v2/dns/$($domainid)/record/$($element)" -ContentType "application/json" -Headers @{ "Api-Key"ù = $APIKey }
 
 }
