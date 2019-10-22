@@ -21,7 +21,7 @@ $zone = $zone -replace "'\*.',"
 $APIKey = Get-Content -Path 'C:\crsadmin\TXTAdder\DynuAPIKey.txt'
 
 # GET Request to Dynu.com - This will get the ID of the domain.
-$getdomaindata = Invoke-RestMethod -Method GET -Uri 'https://api.dynu.com/v2/dns/' -ContentType "application/json" -Headers @{ "Api-Key"ù = $APIKey }
+$getdomaindata = Invoke-RestMethod -Method Get -Uri 'https://api.dynu.com/v2/dns/' -ContentType 'application/json' -Headers @{ "Apt-Key" = $APIKey }
 
 # This is looking for the object domain "ID".
 $domainid = $getdomaindata.domains.Where({ $_.name -eq $zone }).id
