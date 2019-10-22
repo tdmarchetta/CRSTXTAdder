@@ -2,7 +2,7 @@ crsadmin# PowerShell To Setting up Scripts to talk to Certify The Web.
 # Author: Taylor D. Marchetta
 
 $currentlocation = Get-Location
-New-Item -Path "C:\" -Name "crsadmin" -ItemType "directory"
+New-Item -Path "C:\crsadmin\" -Name "TXTAdder" -ItemType "directory"
 
 # Copy file(s) from the location where "Setup.ps1" is at.
 Copy-Item -Path "$currentlocation\CTW_TXT_Add.bat" -Destination 'C:\crsadmin\'
@@ -19,4 +19,4 @@ $getAPIKey | Add-Content -Path "C:\crsadmin\DynuAPIKey.txt"
 Set-ExecutionPolicy Bypass
 
 # Unblock all files in crsadmin
-Get-ChildItem C:\crsadmin\ | Unblock-File
+Get-ChildItem C:\crsadmin\TXTAdder\ | Unblock-File

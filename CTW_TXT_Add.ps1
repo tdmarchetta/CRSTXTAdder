@@ -11,8 +11,8 @@ param (
     [string]$value  #HashValue for Let's Encrypt
     )
 
-# Check for 'C:\crsadmin\DynuAPIKey.txt' file.
-if (Test-Path C:\crsadmin\DynuAPIKey.txt) {
+# Check for 'C:\crsadmin\TXTAdder\DynuAPIKey.txt' file.
+if (Test-Path C:\crsadmin\TXTAdder\DynuAPIKey.txt) {
 
 # Removes "IX HashValue" in wildcards.
 $zone = $zone -replace "'\*.',"
@@ -21,7 +21,7 @@ $zone = $zone -replace "'\*.',"
 $APIKey = Get-Content -Path 'C:\TXTAdder\DynuAPIKey.txt'
 
 # GET Request to Dynu.com - This will get the ID of the domain.
-$getdomaindata = Invoke-RestMethod -Method GET -Uri ‘https://api.dynu.com/v2/dns/’ -ContentType ‘application/json’ -Headers @{ “Api-Key” = $APIKey }
+$getdomaindata = Invoke-RestMethod -Method GET -Uri "https://api.dynu.com/v2/dns/" -ContentType "application/json" -Headers @{ "Api-Key"� = $APIKey }
 
 # This is looking for the object domain "ID".
 $domainid = $getdomaindata.domains.Where({ $_.name -eq $zone }).id
@@ -40,7 +40,7 @@ $jsonbody = ConvertTo-Json @{
 } # End Json data for Dynu API.
 
 # POST TXT record to Dynu Record.
-Invoke-RestMethod -Method POST -Uri "https://api.dynu.com/v2/dns/$($domainid)/record" -ContentType ‘application/json’ -Headers @{ “Api-Key” = $APIKey } -Body $jsonbody
+Invoke-RestMethod -Method POST -Uri "https://api.dynu.com/v2/dns/$($domainid)/record" -ContentType "application/json" -Headers @{ "Api-Key"� = $APIKey } -Body $jsonbody
 
 } # End "if"
 else
