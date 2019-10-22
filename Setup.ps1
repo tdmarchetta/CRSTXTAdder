@@ -2,14 +2,15 @@ crsadmin# PowerShell To Setting up Scripts to talk to Certify The Web.
 # Author: Taylor D. Marchetta
 
 $currentlocation = Get-Location
+$TXTAdderlocation = 'C:\crsadmin\TXTAdder\'
 New-Item -Path "C:\crsadmin\" -Name "TXTAdder" -ItemType "directory"
 
 # Copy file(s) from the location where "Setup.ps1" is at.
-Copy-Item -Path "$currentlocation\CTW_TXT_Add.bat" -Destination 'C:\crsadmin\'
-Copy-Item -Path "$currentlocation\CTW_TXT_Add.ps1" -Destination 'C:\crsadmin\'
-Copy-Item -Path "$currentlocation\CTW_TXT_Delete.bat" -Destination 'C:\crsadmin\'
-Copy-Item -Path "$currentlocation\CTW_TXT_Delete.ps1" -Destination 'C:\crsadmin\'
-Copy-Item -Path "$currentlocation\RDGateway_Update.ps1" -Destination 'C:\crsadmin\'
+Copy-Item -Path "$currentlocation\CTW_TXT_Add.bat" -Destination $TXTAdderlocation
+Copy-Item -Path "$currentlocation\CTW_TXT_Add.ps1" -Destination $TXTAdderlocation
+Copy-Item -Path "$currentlocation\CTW_TXT_Delete.bat" -Destination $TXTAdderlocation
+Copy-Item -Path "$currentlocation\CTW_TXT_Delete.ps1" -Destination $TXTAdderlocation
+Copy-Item -Path "$currentlocation\RDGateway_Update.ps1" -Destination $TXTAdderlocation
 
 # $getAPIKey | Add-Content -Path 
 $getAPIKey = Read-Host -Prompt 'Dynu API Key, Please'
