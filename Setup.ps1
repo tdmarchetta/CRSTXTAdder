@@ -5,11 +5,11 @@ $currentlocation = Get-Location
 New-Item -Path "C:\crsadmin" -Name "TXTAdder" -ItemType "directory"
 
 # Copy file(s) from the location where "Setup.ps1" is at.
-Copy-Item -Path "$currentlocation\CTW_TXT_Add.bat" -Destination 'C:\crsadmin\TXTAdder\'
-Copy-Item -Path "$currentlocation\CTW_TXT_Add.ps1" -Destination 'C:\crsadmin\TXTAdder\'
-Copy-Item -Path "$currentlocation\CTW_TXT_Delete.bat" -Destination 'C:\crsadmin\TXTAdder\'
-Copy-Item -Path "$currentlocation\CTW_TXT_Delete.ps1" -Destination 'C:\crsadmin\TXTAdder\'
-Copy-Item -Path "$currentlocation\RDGateway_Update.ps1" -Destination 'C:\crsadmin\TXTAdder\'
+Copy-Item -Path "$currentlocation\CRS_CTW_TXT_Add.bat" -Destination 'C:\crsadmin\TXTAdder\'
+Copy-Item -Path "$currentlocation\CRS_CTW_TXT_Add.ps1" -Destination 'C:\crsadmin\TXTAdder\'
+Copy-Item -Path "$currentlocation\CRS_CTW_TXT_Delete.bat" -Destination 'C:\crsadmin\TXTAdder\'
+Copy-Item -Path "$currentlocation\CRS_CTW_TXT_Delete.ps1" -Destination 'C:\crsadmin\TXTAdder\'
+Copy-Item -Path "$currentlocation\CRS_RDGateway_Update.ps1" -Destination 'C:\crsadmin\TXTAdder\'
 
 # $getAPIKey | Add-Content -Path 
 $getAPIKey = Read-Host -Prompt 'Dynu API Key, Please'
