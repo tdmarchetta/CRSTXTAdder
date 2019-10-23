@@ -1,4 +1,4 @@
-###### PowerShell to adding TXT record with Certify The Web.
+﻿###### PowerShell to adding TXT record with Certify The Web.
 ###### Version 1.0.0
 ###### Author: Taylor D. Marchetta
 ###### Huge thanks to James Crissman
@@ -14,13 +14,13 @@ param (
 $APIKey = Get-Content -Path 'C:\crsadmin\TXTAdder\DynuAPIKey.txt'
 
 ###### GET Request to Dynu.com - This will get the ID of the domain.
-$getdomaindata = Invoke-RestMethod -Method GET -Uri "https://api.dynu.com/v2/dns/" -ContentType "application/json" -Headers @{ "Api-Key"� = $APIKey }
+$getdomaindata = Invoke-RestMethod -Method GET -Uri ‘https://api.dynu.com/v2/dns/’ -ContentType ‘application/json’ -Headers @{ “Api-Key” = $APIKey }
 
 ###### This is looking for the object domain "ID".
 $domainid = $getdomaindata.domains.Where({ $_.name -eq "$zone" }).id
 
 ###### This is to get the record ID.
-$getrecorddata = Invoke-RestMethod -Method GET -Uri "https://api.dynu.com/v2/dns/$($domainid)/record/" -ContentType "application/json" -Headers @{ "Api-Key"� = $APIKey }
+$getrecorddata = Invoke-RestMethod -Method GET -Uri "https://api.dynu.com/v2/dns/$($domainid)/record/" -ContentType ‘application/json’ -Headers @{ “Api-Key” = $APIKey }
 
 ###### This is looking for object record "ID".
 $recordid = $getrecorddata.dnsRecords.Where({ $_.nodeName -eq '_acme-challenge' }).id
@@ -29,6 +29,6 @@ $recordid = $getrecorddata.dnsRecords.Where({ $_.nodeName -eq '_acme-challenge' 
 foreach ($element in $recordid) {
 
 ###### Delete TXT record to Dynu Record.
-Invoke-RestMethod -Method DELETE -Uri "https://api.dynu.com/v2/dns/$($domainid)/record/$($element)" -ContentType "application/json" -Headers @{ "Api-Key"� = $APIKey }
+Invoke-RestMethod -Method DELETE -Uri "https://api.dynu.com/v2/dns/$($domainid)/record/$($element)" -ContentType ‘application/json’ -Headers @{ “Api-Key” = $APIKey }
 
 }
