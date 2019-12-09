@@ -3,8 +3,9 @@
 # Author: Taylor D. Marchetta
 
 # Variables
-    # Get's the location of the executed PowerShell script and turns it into a valuable
-    $currentlocation = Get-Location
+
+# Get's the location of the executed PowerShell script and turns it into a valuable
+$currentlocation = Get-Location
 
 
 # Check for 'C:\crsadmin' folder.
@@ -12,14 +13,13 @@ if (!(Test-Path 'C:\crsadmin')) {
 
     # Makes new folder "TXTAdder"
     New-Item -Path "C:\" -Name "crsadmin" -ItemType Directory
-
-} # End of "if"
+}
 
 # Makes new folder "TXTAdder"
 New-Item -Path "C:\crsadmin" -Name "TXTAdder" -ItemType Directory
 
 # Copy file(s) from the location where "Setup.ps1" is at.
-Copy-Item -Path "$currentlocation\CRS_CTW_TXT_Add.bat" -Destination 'C:\crsadmin\TXTAdder\'
+Copy-Item -Path "$currentlocation\CRS_CTW_TXT_Add.bat" -Destination 'C:\crsadmin\TXTAdder\' 
 Copy-Item -Path "$currentlocation\CRS_CTW_TXT_Add.ps1" -Destination 'C:\crsadmin\TXTAdder\'
 Copy-Item -Path "$currentlocation\CRS_CTW_TXT_Delete.bat" -Destination 'C:\crsadmin\TXTAdder\'
 Copy-Item -Path "$currentlocation\CRS_CTW_TXT_Delete.ps1" -Destination 'C:\crsadmin\TXTAdder\'
