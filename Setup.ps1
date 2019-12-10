@@ -15,7 +15,7 @@ if (!(test-path $crsadminTXT.trim())) {
 }
 
 # Copy file(s) from the location where "Setup.ps1" is at.
-Copy-Item -Path "$currentlocation\CRS_*.*" -Destination '$crsadminTXT' -Recurse
+Copy-Item -Path "$currentlocation\CRS_*" -Destination "$crsadminTXT" -Recurse -Force
 
 # Gets APIKey | Add-Content -Path 
 $getAPIKey = Read-Host -Prompt 'Dynu API Key, Please'
@@ -25,4 +25,4 @@ $getAPIKey | Add-Content -Path "$crsadminTXT\DynuAPIKey.txt"
 Set-ExecutionPolicy Bypass
 
 # Unblock all files in TXTAdder
-Get-ChildItem '$crsadminTXT' | Unblock-File
+Get-ChildItem "$crsadminTXT" | Unblock-File
