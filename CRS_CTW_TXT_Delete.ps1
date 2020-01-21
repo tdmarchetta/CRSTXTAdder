@@ -10,6 +10,9 @@ param (
     [string]$value  #HashValue for Let's Encrypt
     )
 
+# Force the use of TLS 1.2    
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
 # Gets the API Key from the file.
 $APIKey = Get-Content -Path 'C:\crsadmin\TXTAdder\DynuAPIKey.txt'
 

@@ -10,6 +10,9 @@ param (
     [string]$id,    #Let's Encrypt nodeName - _acme-challenge.yourdomain.com
     [string]$value  #HashValue from Let's Encrypt
     )
+    
+# Force the use of TLS 1.2    
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
 # Check for 'C:\TXTAdder\DynuAPIKey.txt' file.
 if (Test-Path C:\crsadmin\TXTAdder\DynuAPIKey.txt) {
