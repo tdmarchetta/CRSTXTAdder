@@ -1,5 +1,5 @@
 ﻿# PowerShell To Setting up Scripts to talk to Certify The Web & Dynu.
-# Version 1.0.4
+# Version 1.0.5
 # Author: Taylor D. Marchetta
 
 # Variables

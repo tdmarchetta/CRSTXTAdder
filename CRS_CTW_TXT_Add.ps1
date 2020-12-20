@@ -1,6 +1,6 @@
 ﻿# TXTAdder
 # PowerShell To Adding TXT record with Certify the Web
-# Version 1.0.3
+# Version 1.0.4
 # Author: Taylor D. Marchetta
 # Huge thanks to Kyle Grey.
 
